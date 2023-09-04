@@ -6,9 +6,13 @@ Contexto, Contêineres, Componentes, Código.<br>
 <div align="center">
   
 ## Diagrama de Contexto
-![diagrama_de_contexto](documentos/assets/diagrama_de_contexto.png)
+
+![diagrama_de_contexto](https://github.com/Malkowaz/Portfolio-Mate/blob/main/documentos/assets/diagrama_de_contexto.png?raw=true)
+
 <br>
+
 ## Diagrama de Container
-![diagrama_de_contexto](documentos/assets/diagrama_de_container.png)
+
+![diagrama_de_contexto](https://github.com/Malkowaz/Portfolio-Mate/blob/main/documentos/assets/diagrama_de_container.png?raw=true)
 
 </div>
