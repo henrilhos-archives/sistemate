@@ -77,7 +77,7 @@ Decisão a ser tomada: Está sendo decidido como projetar o sistema para facilit
 Equilíbrio em análise: Está sendo considerado como equilibrar a simplicidade da estrutura com a escalabilidade do sistema, para que a manutenção seja eficiente no longo prazo.
 
 # Model
-Os diagramas feitos de acordo com o modelo C4 de documentação podem ser encontrados aqui.
+Os diagramas feitos de acordo com o modelo C4 de documentação podem ser encontrados [aqui](documentos/diagramas-C4.md).
 
 # Requisitos e Casos de uso
 Os requisitos funcionais, não funcionais e os casos de uso podem ser encontrados aqui.
