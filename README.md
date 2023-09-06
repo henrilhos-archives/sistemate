@@ -64,18 +64,18 @@ Desenvolver um sistema de automação para uma loja com o objetivo de substituir
    - Integrar o sistema com serviços de e-mail e redes sociais para permitir o envio automático de comprovantes aos clientes.
 
 10. **Controle de Acesso:**
-11. - Implementar diferentes níveis de acesso de usuário (por exemplo, administrador, funcionário) para controlar quem pode realizar quais ações no sistema.
+    - Implementar diferentes níveis de acesso de usuário (por exemplo, administrador, funcionário) para controlar quem pode realizar quais ações no sistema.
 
-12. **Auditoria de Alterações:**
-13. - Registrar todas as alterações feitas no sistema para fins de auditoria e rastreamento.
+11. **Auditoria de Alterações:**
+    - Registrar todas as alterações feitas no sistema para fins de auditoria e rastreamento.
 
-14. **Interface de Usuário Amigável:**
-15. - Desenvolver uma interface de usuário intuitiva e fácil de usar para facilitar a interação dos funcionários com o sistema.
+12. **Interface de Usuário Amigável:**
+    - Desenvolver uma interface de usuário intuitiva e fácil de usar para facilitar a interação dos funcionários com o sistema.
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
 # Contexto
-O projeto visa modernizar a operação da Mate Cafeteria, substituindo processos manuais por um sistema automatizado, trazendo eficiência, confiabilidade e a possibilidade de integração com a folha de pagamento.
+O projeto visa modernizar a operação de uma loja, substituindo processos manuais por um sistema automatizado, trazendo eficiência, confiabilidade e a possibilidade de integração com a folha de pagamento.
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
@@ -106,7 +106,7 @@ Serão consideradas restrições de custo para implementação e manutenção do
 
 7. **Padronização de Tecnologia vs. Diversificação:**
     - Padronizar em tecnologias conhecidas pode facilitar o desenvolvimento, mas pode limitar a exploração de soluções mais inovadoras.
-    - 
+      
 <!------------------------------------------------------------------------------------------------------------------------->
 
 # Modelagem
