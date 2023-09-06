@@ -16,58 +16,61 @@
  * [Escopo](#escopo) 
  * [Contexto](#contexto) 
  * [Restrições](#restrições) 
- * [Trade-offs](#trade-offs) 
+ * [Trade-offs](#trade-offs)
+ * [Modelagem](#modelagem)
  * [Modelos C4](#modelos-c4)
  * [Casos de uso](#casos-de-uso)
- * [Modelagem](#modelagem)
  * [Instalação](/documentos/instalacao.md) 
  * [Stacks](/documentos/stacks.md)
    
 <!------------------------------------------------------------------------------------------------------------------------->
 
 # Descrição do Projeto
-Desenvolver um sistema de automação para a Mate Cafeteria com o objetivo de substituir processos manuais por operações automatizadas, aumentando a eficiência, reduzindo erros humanos e melhorando a confiabilidade. A solução visa automatizar o gerenciamento do cadastro de clientes, controle de operações financeiras e relatórios.
+Desenvolver um sistema de automação para uma loja com o objetivo de substituir processos manuais por operações automatizadas, aumentando a eficiência, reduzindo erros humanos e melhorando a confiabilidade. A solução visa automatizar o gerenciamento do cadastro de clientes, controle de fichas de consumo e geração de relatórios.
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
 # Escopo
-Cadastro automatizado de clientes.
-Sistema de verificação e aprovação de cadastros.
-Gerenciamento eletrônico de fichas de clientes.
-Registro e cálculo automático de operações financeiras.
-Geração de relatórios financeiros para análise.
-Geração de comprovante para cliente.
-Escopo Detalhado:
 
-### Cadastro e Verificação de Clientes:
-* Desenvolvimento de um sistema de cadastro online para clientes.
-* Implementação de um fluxo de aprovação de cadastros, com verificação de dados e histórico.
+1. **Cadastro de Clientes:**
+   - Permitir o cadastro de novos clientes com informações como nome, endereço, número de telefone, e-mail, etc.
+   - Manter um registro centralizado de todos os clientes cadastrados.
 
-### Gerenciamento Eletrônico de Fichas:
-* Substituição das fichas manuais por registros eletrônicos, armazenados em banco de dados.
-* Atualização automática dos saldos após cada operação.
+2. **Cadastro de Fichas de Consumo:**
+   - Permitir a criação de fichas de consumo para cada cliente sempre que eles realizarem uma compra.
+   - Cada ficha de consumo deve conter informações sobre os produtos adquiridos, seus preços, quantidades, data e hora da compra, além de um limite de R$200, como mencionado.
 
-### Controle Financeiro Automatizado:
-* Implementação de lógica para cálculo automático de operações financeiras (compras, pagamentos, créditos etc.).
+3. **Alteração de Fichas de Consumo:**
+   - Possibilitar a edição das fichas de consumo para incluir, modificar ou excluir produtos, preços, quantidades, desde que as alterações não afetem as compras passadas de um cliente.
+   - Garantir que as alterações sejam aplicadas apenas a consumos futuros.
 
-### Relatórios e Análises:
-* Desenvolvimento de um sistema de geração de relatórios financeiros para análise interna.
-* Possibilidade de visualizar histórico de transações e saldos por cliente.
+4. **Consulta de Clientes Específicos:**
+   - Permitir a busca e visualização dos detalhes de um cliente específico, incluindo suas informações pessoais e histórico de consumo.
 
-### Segurança e Privacidade:
-* Implementação de autenticação segura para acesso ao sistema.
-* Criptografia de dados sensíveis, como informações pessoais e financeiras dos clientes.
+5. **Geração de Comprovantes:**
+   - Facilitar a geração de comprovantes de compra para os clientes, que podem ser enviados por e-mail ou através de redes sociais.
+   - Os comprovantes devem conter informações detalhadas sobre a compra, incluindo data, hora, produtos, preços, quantidades e valor total.
 
-### Interface de Usuário:
-Criação de uma interface de usuário intuitiva e responsiva para acesso e gerenciamento das operações.
+6. **Relatórios:**
+   - Gerar relatórios periódicos sobre as vendas, incluindo informações como vendas totais, produtos mais vendidos, clientes mais frequentes, etc.
 
-### Testes e Qualidade:
-Realização de testes extensivos de funcionalidade e segurança.
-Implementação de medidas de qualidade de código.
+7. **Segurança e Autenticação:**
+   - Implementar um sistema de autenticação seguro para garantir que apenas usuários autorizados tenham acesso ao sistema.
 
-### Treinamento e Suporte:
-Desenvolvimento de materiais de treinamento para os funcionários da Mate Cafeteria.
-Oferecimento de suporte para esclarecimento de dúvidas e solução de problemas.
+8. **Backup e Recuperação:**
+   - Realizar backups regulares dos dados para evitar perdas de informações importantes e implementar um mecanismo de recuperação em caso de falhas no sistema.
+
+9. **Integração de E-mail e Redes Sociais:**
+   - Integrar o sistema com serviços de e-mail e redes sociais para permitir o envio automático de comprovantes aos clientes.
+
+10. **Controle de Acesso:**
+11. - Implementar diferentes níveis de acesso de usuário (por exemplo, administrador, funcionário) para controlar quem pode realizar quais ações no sistema.
+
+12. **Auditoria de Alterações:**
+13. - Registrar todas as alterações feitas no sistema para fins de auditoria e rastreamento.
+
+14. **Interface de Usuário Amigável:**
+15. - Desenvolver uma interface de usuário intuitiva e fácil de usar para facilitar a interação dos funcionários com o sistema.
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
@@ -83,85 +86,41 @@ Serão consideradas restrições de custo para implementação e manutenção do
 
 # Trade-offs
 
-### Simplicidade da Interface:
-Decisão a ser tomada: A interface do sistema será mantida simples e intuitiva para uma experiência amigável.
-Equilíbrio em análise: Está sendo ponderada a possibilidade de adicionar recursos mais avançados sem comprometer a usabilidade ou aumentar a complexidade do desenvolvimento.
+1. **Automatização vs. Manual:**
+   - Automatizar processos aumenta a eficiência, mas pode exigir mais recursos de desenvolvimento inicial.
 
-### Desempenho versus Escalabilidade:
-Decisão a ser tomada: O foco será em otimizar o desempenho do sistema para tempos de resposta rápidos.
-Equilíbrio em análise: Está sendo considerado como equilibrar o desempenho com a capacidade de escalabilidade, para que o sistema possa lidar com um aumento na demanda ao longo do tempo.
+2. **Eficiência vs. Redução de Erros:**
+   - A automação pode aumentar a eficiência, mas não garantirá necessariamente a redução de erros humanos.
 
-### Gerenciamento de Dados:
-Decisão a ser tomada: Está sendo explorada a melhor forma de gerenciar os dados do sistema, levando em conta a precisão das atualizações.
-Equilíbrio em análise: Está sendo avaliada a possibilidade de depender apenas de dados internos ou integrar fontes externas para informações específicas.
+3. **Flexibilidade vs. Controle:**
+   - Oferecer a capacidade de alterar fichas de consumo pode fornecer flexibilidade, mas também pode resultar em perda de controle sobre dados históricos.
 
-### Amplitude de Recursos:
-Decisão a ser tomada: Está sendo avaliado até que ponto os recursos do sistema serão desenvolvidos, considerando a capacidade do desenvolvedor.
-Equilíbrio em análise: Está sendo ponderada a inclusão de recursos adicionais sem complicar o desenvolvimento ou a experiência do usuário.
+4. **Customização vs. Padronização:**
+   - Personalizar fichas de consumo pode atender às necessidades individuais dos clientes, mas pode complicar a manutenção e a integração de sistemas futuros.
 
-### Facilidade de Manutenção:
-Decisão a ser tomada: Está sendo decidido como projetar o sistema para facilitar a manutenção contínua.
-Equilíbrio em análise: Está sendo considerado como equilibrar a simplicidade da estrutura com a escalabilidade do sistema, para que a manutenção seja eficiente no longo prazo.
-<br>
+5. **Facilidade de Uso vs. Recursos Avançados:**
+   - Tornar o sistema fácil de usar pode atrair mais usuários, mas pode limitar a inclusão de recursos avançados que atendem a necessidades específicas.
+
+6. **Segurança vs. Usabilidade:**
+   - Fortalecer a segurança pode proteger os dados, mas pode complicar a experiência do usuário.
+
+7. **Padronização de Tecnologia vs. Diversificação:**
+    - Padronizar em tecnologias conhecidas pode facilitar o desenvolvimento, mas pode limitar a exploração de soluções mais inovadoras.
+    - 
+<!------------------------------------------------------------------------------------------------------------------------->
+
+# Modelagem
+A metodologia Scrum foi incorporada com o auxílio da plataforma Trello. O Scrum segmentou as atividades em sprints, que são períodos de desenvolvimento, enquanto o Trello foi usado para gerenciar tarefas, histórias de usuário e monitorar o andamento do projeto.
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
-# Requisitos:
-## Requisitos Funcionais:
-
-### Cadastro de Clientes:<br>
-* O sistema deve permitir o cadastro de clientes, incluindo informações como nome, CPF, endereço, telefone e dados de contato.
-
-### Aprovação de Cadastro:<br>
-* O sistema deve permitir que a Neusa ou um usuário autorizado aprove ou rejeite novos cadastros de clientes.
-* A aprovação deve incluir a verificação de informações verídicas e a avaliação de riscos para conceder crédito.
-
-### Gestão de Fichas:<br>
-* O sistema deve permitir que a Mate Cafeteria crie, armazene e atualize fichas de transações para cada cliente.
-* Deve ser possível registrar todas as transações dos clientes, incluindo compras e pagamentos pendentes.
-
-### Cálculo de Saldo:<br>
-* O sistema deve calcular automaticamente o saldo devido de cada cliente com base nas transações registradas.
-* O saldo deve ser atualizado sempre que uma nova transação for registrada.
-
-### Débito Direto na Folha de Pagamento:<br>
-* O sistema deve oferecer a opção de pagamento com débito direto na folha de pagamento dos clientes, se autorizado.
-* Deve manter um registro das autorizações e processar os pagamentos automaticamente.
-
-### Relatórios e Consultas:<br>
-* O sistema deve fornecer funcionalidades para gerar relatórios de transações, saldos de clientes e outras métricas relevantes.
-* Deve permitir consultas para verificar o histórico de transações de clientes específicos.
-
-## Requisitos Não Funcionais:<br>
-
-### Segurança de Dados:<br>
-* O sistema deve garantir a segurança dos dados dos clientes, incluindo medidas de criptografia e controle de acesso.
-
-### Desempenho:
-* O sistema deve ser responsivo, mesmo quando houver um grande volume de transações.
-* O tempo de resposta para consultas e operações deve ser rápido.
-
-### Disponibilidade:
-* O sistema deve estar disponível 24 horas por dia, 7 dias por semana, para que os clientes possam acessá-lo quando necessário.
-
-### Escalabilidade:
-* O sistema deve ser escalável para lidar com um aumento no número de clientes e transações.
-
-### Conformidade Legal:
-* O sistema deve estar em conformidade com regulamentações financeiras e de proteção de dados aplicáveis, como a LGPD (Lei Geral de Proteção de Dados).
-
-### Usabilidade:
-* A interface do sistema deve ser intuitiva e fácil de usar, para que a equipe da Mate Cafeteria possa utilizá-lo sem dificuldades.
-
-### Backup e Recuperação:
-* O sistema deve realizar backups regulares dos dados e permitir a recuperação em caso de falhas.
-
-### Hospedagem e Conectividade:
-* O sistema deve ser hospedado de forma confiável na AWS e ter uma conectividade estável para garantir o acesso contínuo.
-  
-<!------------------------------------------------------------------------------------------------------------------------->
 # Modelos C4
 Os diagramas feitos de acordo com o modelo C4 de documentação podem ser encontrados [aqui](documentos/diagramas-C4.md).
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+# Requisitos
+Os Requisitos Funcionais e Não Funcionais do sistema podem der encontrados [aqui](documentos/requisitos.md).
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
@@ -170,12 +129,8 @@ Os casos de uso podem ser encontrados aqui.
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
-# Modelagem
-Modelagem das paradas :D.
-
-<!------------------------------------------------------------------------------------------------------------------------->
-
 # Instalação
+Para obter instruções sobre como instalar o projeto, siga o passo a passo de instalação disponível [aqui](documentos/instalacao.md).
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
