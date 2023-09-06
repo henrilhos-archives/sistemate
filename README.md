@@ -135,4 +135,4 @@ Para obter instruções sobre como instalar o projeto, siga o passo a passo de i
 <!------------------------------------------------------------------------------------------------------------------------->
 
 # Stacks
-
+Para acessar a lista de tecnologias utilizadas no projeto, clique [aqui](documentos/stacks.md).
