@@ -17,19 +17,15 @@
    - As fichas de consumo não podem exceder um limite de R$200.
    - O sistema deve calcular automaticamente o valor total da ficha de consumo.
 
-3. **Alteração de Fichas de Consumo:**
-   - O administrador deve poder editar fichas de consumo existentes, incluindo adicionar, modificar ou excluir produtos, desde que essas alterações não afetem compras passadas.
-   - As alterações só devem ser aplicadas a futuros consumos.
+3. **Consulta de Clientes Específicos:**
+   - O sistema deve permitir a pesquisa e visualização dos detalhes de um cliente específico, incluindo informações pessoais e histórico de consumo.
 
-4. **Consulta de Clientes Específicos:**
-   - O sistema deve permitir a pesquisa e visualização dos detalhes de um cliente específico, incluindo informações pessoais e histórico de compras.
-
-5. **Geração de Comprovantes:**
+4. **Geração de Comprovantes:**
    - O admnistrador deve poder gerar comprovantes de compra para os clientes.
    - Os comprovantes devem ser enviados automaticamente por e-mail ou através de redes sociais, conforme escolha do cliente.
    - Os comprovantes devem conter informações detalhadas sobre a compra.
 
-6. **Relatórios:**
+5. **Relatórios:**
    - O sistema deve gerar relatórios periódicos sobre as vendas, incluindo vendas totais, produtos mais vendidos e clientes mais frequentes.
    - Os relatórios podem ser gerados em formatos como PDF ou CSV.
 
@@ -47,17 +43,14 @@
 3. **Disponibilidade:**
    - O sistema deve estar disponível durante o horário comercial da loja e, preferencialmente, 24/7 para permitir a manutenção fora do horário de funcionamento.
 
-4. **Escalabilidade:**
-   - O sistema deve ser escalável para lidar com o crescimento do negócio, suportando a adição de mais clientes, produtos e funcionários.
-
-5. **Integração:**
+4. **Integração:**
    - O sistema deve ser capaz de se integrar com serviços de e-mail e redes sociais para a geração e envio de comprovantes de compra.
 
-6. **Backup e Recuperação:**
+5. **Backup e Recuperação:**
    - Deve haver um sistema de backup regular para garantir a recuperação de dados em caso de falhas no sistema.
 
-7. **Usabilidade:**
+6. **Usabilidade:**
    - A interface de usuário deve ser intuitiva e de fácil uso, para que os funcionários possam realizar tarefas sem a necessidade de treinamento extensivo.
 
-8. **Manutenção:**
+7. **Manutenção:**
    - O sistema deve ser de fácil manutenção e atualização, permitindo correções e melhorias sem interrupções significativas nos serviços.
