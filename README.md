@@ -125,7 +125,7 @@ Os Requisitos Funcionais e Não Funcionais do sistema podem der encontrados [aqu
 <!------------------------------------------------------------------------------------------------------------------------->
 
 # Casos de uso
-Os casos de uso podem ser encontrados aqui.
+Os casos de uso podem ser encontrados [aqui](documentos/caso_de_uso.md).
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
