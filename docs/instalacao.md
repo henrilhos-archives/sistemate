@@ -5,8 +5,8 @@
 Antes de iniciar a instalação, certifique-se de ter o seguinte software instalado no seu sistema:
 
 - **Python (versão Python 3.9)**
-- **Django (versão 4.2.5)**
-- **PostgreSQL (versão 15)**
+- **Flask **
+- **PostgreSQL (versão 12)**
 - **Pip (gerenciador de pacotes Python)**
 
 ## Instalação
@@ -41,25 +41,3 @@ Para isolar as dependências do projeto, você pode criar um ambiente virtual. C
 ```
 pip install -r requirements.txt
 ```
-
-4. **Configurar o Banco de Dados:**
-
-Abra o arquivo `settings.py` dentro da pasta `Portfolio-Mate` e configure as configurações do banco de dados de acordo com suas preferências. Por padrão, o projeto está configurado para usar o PostgreSQL.
-
-5. **Aplicar Migrações:**
-
-Execute as migrações para criar as tabelas do banco de dados:
-
-```
-python manage.py migrate
-```
-
-6. **Executar o Servidor de Desenvolvimento:**
-
-Inicie o servidor de desenvolvimento Django:
-
-```
-python manage.py runserver
-```
-
-Agora você pode acessar o seu projeto em `http://localhost:8000` no seu navegador.
