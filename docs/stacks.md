@@ -6,18 +6,17 @@ A seguir estão as tecnologias e ferramentas utilizadas no desenvolvimento do pr
 
 ## Desenvolvimento Web
 
-- **Framework Backend:** Django 3.2
-- **Banco de Dados:** PostgreSQL 13
+- **Framework Backend:** Flask
+- **Banco de Dados:** PostgreSQL 12
 
 ## Frontend
 
 - **HTML5, CSS3 e JavaScript:** Para a interface do usuário.
-- **Framework Frontend:** Javascript
+- **Framework Frontend:** Next.js
 
 ## Ambiente de Desenvolvimento
 
 - **Linguagem de Programação:** Python 3.9
-- **Gerenciamento de Ambiente Virtual:** pipenv
 - **Editor de Código:** Visual Studio Code
 
 ## Controle de Versão
@@ -31,8 +30,9 @@ A seguir estão as tecnologias e ferramentas utilizadas no desenvolvimento do pr
 
 ## Implantação
 
-- **Hospedagem em Nuvem:** AWS (Amazon Web Services)
-
+- **Hospedagem em Nuvem:** AWS (Amazon Web Services) Back-end
+- **Hospedagem em Nuvem:** Vercel - Front-end
+  
 ## Testes
 
 - **Framework de Testes:** pytest
