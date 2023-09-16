@@ -5,7 +5,7 @@
 Antes de iniciar a instalação, certifique-se de ter o seguinte software instalado no seu sistema:
 
 - **Python (versão Python 3.9)**
-- **Flask **
+- **Flask**
 - **PostgreSQL (versão 12)**
 - **Pip (gerenciador de pacotes Python)**
 
