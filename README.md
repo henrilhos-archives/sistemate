@@ -116,24 +116,24 @@ A metodologia Scrum foi incorporada com o auxílio da plataforma Trello. O Scrum
 <!------------------------------------------------------------------------------------------------------------------------->
 
 # Modelos C4
-Os diagramas feitos de acordo com o modelo C4 de documentação podem ser encontrados [aqui](documentos/diagramas-C4.md).
+Os diagramas feitos de acordo com o modelo C4 de documentação podem ser encontrados [aqui](docs/diagramas-C4.md).
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
 # Requisitos
-Os Requisitos Funcionais e Não Funcionais do sistema podem der encontrados [aqui](documentos/requisitos.md).
+Os Requisitos Funcionais e Não Funcionais do sistema podem der encontrados [aqui](docs/requisitos.md).
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
 # Casos de uso
-Os casos de uso podem ser encontrados [aqui](documentos/caso_de_uso.md).
+Os casos de uso podem ser encontrados [aqui](docs/caso_de_uso.md).
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
 # Instalação
-Para obter instruções sobre como instalar o projeto, siga o passo a passo de instalação disponível [aqui](documentos/instalacao.md).
+Para obter instruções sobre como instalar o projeto, siga o passo a passo de instalação disponível [aqui](docs/instalacao.md).
 
 <!------------------------------------------------------------------------------------------------------------------------->
 
 # Stacks
-Para acessar a lista de tecnologias utilizadas no projeto, clique [aqui](documentos/stacks.md).
+Para acessar a lista de tecnologias utilizadas no projeto, clique [aqui](docs/stacks.md).
