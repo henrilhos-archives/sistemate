@@ -1,28 +1,136 @@
-# Create T3 App
+# Projeto Sistemate
+![sistemate2](https://github.com/Malkowaz/Portfolio-Mate/assets/63025296/e84be790-495d-4493-8b6e-c0477cd6cc07) <br>
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+<!------------------------------------------------------------------------------------------------------------------------->
+# Badges
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
-## What's next? How do I make an app with this?
+<!------------------------------------------------------------------------------------------------------------------------->
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+ ## Índice 
+ * [Descrição do Projeto](#descrição-do-projeto)
+ * [Escopo](#escopo) 
+ * [Contexto](#contexto) 
+ * [Restrições](#restrições) 
+ * [Trade-offs](#trade-offs)
+ * [Modelagem](#modelagem)
+ * [Modelos C4](#modelos-c4)
+ * [Casos de uso](#casos-de-uso)
+ * [Instalação](/documentos/instalacao.md) 
+ * [Stacks](/documentos/stacks.md)
+   
+<!------------------------------------------------------------------------------------------------------------------------->
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+# Descrição do Projeto
+Desenvolver um sistema de automação para uma loja com o objetivo de substituir processos manuais por operações automatizadas, aumentando a eficiência, reduzindo erros humanos e melhorando a confiabilidade. A solução visa automatizar o gerenciamento do cadastro de clientes, controle de fichas de consumo e geração de relatórios.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+<!------------------------------------------------------------------------------------------------------------------------->
 
-## Learn More
+# Escopo
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+1. **Cadastro de Clientes:**
+   - Permitir o cadastro de novos clientes com informações como nome, endereço, número de telefone, e-mail, etc.
+   - Manter um registro centralizado de todos os clientes cadastrados.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+2. **Cadastro de Fichas de Consumo:**
+   - Permitir a criação de fichas de consumo para cada cliente sempre que eles realizarem uma compra.
+   - Cada ficha de consumo deve conter informações sobre os produtos adquiridos, seus preços, quantidades, data e hora da compra, além de um limite de R$200, como mencionado.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+3. **Alteração de Fichas de Consumo:**
+   - Possibilitar a edição das fichas de consumo para incluir, modificar ou excluir produtos, preços, quantidades, desde que as alterações não afetem as compras passadas de um cliente.
+   - Garantir que as alterações sejam aplicadas apenas a consumos futuros.
 
-## How do I deploy this?
+4. **Consulta de Clientes Específicos:**
+   - Permitir a busca e visualização dos detalhes de um cliente específico, incluindo suas informações pessoais e histórico de consumo.
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+5. **Geração de Comprovantes:**
+   - Facilitar a geração de comprovantes de compra para os clientes, que podem ser enviados por e-mail ou através de redes sociais.
+   - Os comprovantes devem conter informações detalhadas sobre a compra, incluindo data, hora, produtos, preços, quantidades e valor total.
+
+6. **Relatórios:**
+   - Gerar relatórios periódicos sobre as vendas, incluindo informações como vendas totais, produtos mais vendidos, clientes mais frequentes, etc.
+
+7. **Segurança e Autenticação:**
+   - Implementar um sistema de autenticação seguro para garantir que apenas usuários autorizados tenham acesso ao sistema.
+
+8. **Backup e Recuperação:**
+   - Realizar backups regulares dos dados para evitar perdas de informações importantes e implementar um mecanismo de recuperação em caso de falhas no sistema.
+
+9. **Integração de E-mail e Redes Sociais:**
+   - Integrar o sistema com serviços de e-mail e redes sociais para permitir o envio automático de comprovantes aos clientes.
+
+10. **Controle de Acesso:**
+    - Implementar diferentes níveis de acesso de usuário (por exemplo, administrador, funcionário) para controlar quem pode realizar quais ações no sistema.
+
+11. **Auditoria de Alterações:**
+    - Registrar todas as alterações feitas no sistema para fins de auditoria e rastreamento.
+
+12. **Interface de Usuário Amigável:**
+    - Desenvolver uma interface de usuário intuitiva e fácil de usar para facilitar a interação dos funcionários com o sistema.
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+# Contexto
+O projeto visa modernizar a operação de uma loja, substituindo processos manuais por um sistema automatizado, trazendo eficiência, confiabilidade e a possibilidade de integração com a folha de pagamento.
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+# Restrições
+Serão consideradas restrições de custo para implementação e manutenção do sistema, além de garantir a segurança dos dados dos clientes e cumprimento das regulamentações de privacidade.
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+# Trade-offs
+
+1. **Automatização vs. Manual:**
+   - Automatizar processos aumenta a eficiência, mas pode exigir mais recursos de desenvolvimento inicial.
+
+2. **Eficiência vs. Redução de Erros:**
+   - A automação pode aumentar a eficiência, mas não garantirá necessariamente a redução de erros humanos.
+
+3. **Flexibilidade vs. Controle:**
+   - Oferecer a capacidade de alterar fichas de consumo pode fornecer flexibilidade, mas também pode resultar em perda de controle sobre dados históricos.
+
+4. **Customização vs. Padronização:**
+   - Personalizar fichas de consumo pode atender às necessidades individuais dos clientes, mas pode complicar a manutenção e a integração de sistemas futuros.
+
+5. **Facilidade de Uso vs. Recursos Avançados:**
+   - Tornar o sistema fácil de usar pode atrair mais usuários, mas pode limitar a inclusão de recursos avançados que atendem a necessidades específicas.
+
+6. **Segurança vs. Usabilidade:**
+   - Fortalecer a segurança pode proteger os dados, mas pode complicar a experiência do usuário.
+
+7. **Padronização de Tecnologia vs. Diversificação:**
+    - Padronizar em tecnologias conhecidas pode facilitar o desenvolvimento, mas pode limitar a exploração de soluções mais inovadoras.
+      
+<!------------------------------------------------------------------------------------------------------------------------->
+
+# Modelagem
+A metodologia Scrum foi incorporada com o auxílio da plataforma Trello. O Scrum segmentou as atividades em sprints, que são períodos de desenvolvimento, enquanto o Trello foi usado para gerenciar tarefas, histórias de usuário e monitorar o andamento do projeto.
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+# Modelos C4
+Os diagramas feitos de acordo com o modelo C4 de documentação podem ser encontrados [aqui](docs/diagramas-C4.md).
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+# Requisitos
+Os Requisitos Funcionais e Não Funcionais do sistema podem der encontrados [aqui](docs/requisitos.md).
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+# Casos de uso
+Os casos de uso podem ser encontrados [aqui](docs/caso_de_uso.md).
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+# Instalação
+Para obter instruções sobre como instalar o projeto, siga o passo a passo de instalação disponível [aqui](docs/instalacao.md).
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+# Stacks
+Para acessar a lista de tecnologias utilizadas no projeto, clique [aqui](docs/stacks.md).
