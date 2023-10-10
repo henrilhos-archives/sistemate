@@ -1,4 +1,4 @@
-# Instalação 
+# Instalação
 
 ## Requisitos Prévios
 
@@ -14,6 +14,7 @@ Antes de iniciar a instalação, certifique-se de ter o seguinte software instal
 1. **Clonar o Repositório:**<br>
 
 Abra um terminal e vá para a pasta onde deseja que o projeto seja clonado. Em seguida, utilize o seguinte comando para realizar a clonagem do repositório:
+
 ```
 git clone https://github.com/Malkowaz/Portfolio-Mate.git
 ```

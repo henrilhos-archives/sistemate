@@ -1,4 +1,4 @@
-# Stack Tecnológica do Projeto 
+# Stack Tecnológica do Projeto
 
 A seguir estão as tecnologias e ferramentas utilizadas no desenvolvimento do projeto de automação Sistemate:
 
@@ -32,7 +32,7 @@ A seguir estão as tecnologias e ferramentas utilizadas no desenvolvimento do pr
 
 - **Hospedagem em Nuvem:** AWS (Amazon Web Services) Back-end
 - **Hospedagem em Nuvem:** Vercel - Front-end
-  
+
 ## Testes
 
 - **Framework de Testes:** pytest
