@@ -6,17 +6,20 @@ A seguir estão as tecnologias e ferramentas utilizadas no desenvolvimento do pr
 
 ## Desenvolvimento Web
 
-- **Framework Backend:** Flask
-- **Banco de Dados:** PostgreSQL 12
+### Backend
 
-## Frontend
+- **Framework Backend:** Next.js
+- **Autenticação:** NextAuth.js
+- **Banco de Dados:** PostgreSQL com Prisma
 
-- **HTML5, CSS3 e JavaScript:** Para a interface do usuário.
+### Frontend
+
 - **Framework Frontend:** Next.js
+- **Estilização:** Tailwind CSS
 
 ## Ambiente de Desenvolvimento
 
-- **Linguagem de Programação:** Python 3.9
+- **Linguagem de Programação:** JavaScript e TypeScript
 - **Editor de Código:** Visual Studio Code
 
 ## Controle de Versão
@@ -30,9 +33,14 @@ A seguir estão as tecnologias e ferramentas utilizadas no desenvolvimento do pr
 
 ## Implantação
 
+<<<<<<< HEAD
 - **Hospedagem em Nuvem:** AWS (Amazon Web Services) Back-end
 - **Hospedagem em Nuvem:** Vercel - Front-end
 
 ## Testes
 
 - **Framework de Testes:** pytest
+=======
+- **Hospedagem em Nuvem (Back-end):** AWS (Amazon Web Services) ou Supabase
+- **Hospedagem em Nuvem (Front-end):** Vercel
+>>>>>>> 45289504e7e697d3351c9137bb2429045714ddf4
