@@ -1,10 +1,9 @@
-import { signIn, signOut, useSession } from "next-auth/react";
+import { SignIn } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
-import { FooterDefault } from "~/components/footer";
 
-import { api } from "~/utils/api";
+import { FooterDefault } from "~/components/footer";
 
 export default function Home() {
   return (
@@ -25,37 +24,14 @@ export default function Home() {
             />
           </h1>
           <div className="flex flex-col items-center gap-2">
-            <AuthShowcase />
+            <div>
+              <SignInButton />
+            </div>
+            <SignIn signUpUrl="/sign-up" path="/sign-up" routing="path" />
           </div>
         </div>
       </main>
       <FooterDefault />
     </>
-  );
-}
-
-function AuthShowcase() {
-  const { data: sessionData } = useSession();
-
-  const { data: secretMessage } = api.example.getSecretMessage.useQuery(
-    undefined, // no input
-    { enabled: sessionData?.user !== undefined },
-  );
-
-  return (
-    <div className="flex flex-col items-center justify-center gap-4">
-      <p className="text-center text-2xl text-white">
-        {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
-        {secretMessage && <span> - {secretMessage}</span>}
-      </p>
-      <button
-        className="rounded bg-black px-10 py-3 font-semibold text-white no-underline transition hover:bg-black/80"
-        onClick={() => {
-          window.location.href = "/home";
-        }}
-      >
-        {sessionData ? "Sair" : "Entrar"}
-      </button>
-    </div>
   );
 }

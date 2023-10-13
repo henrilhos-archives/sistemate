@@ -1,10 +1,12 @@
 import { Navbar as FlowNavbar } from "flowbite-react";
 import { usePathname } from "next/navigation";
+import { UserButton } from "@clerk/nextjs";
+
 export const Navbar = () => {
   const pathname = usePathname();
   return (
     <FlowNavbar fluid={true} rounded={true}>
-      <FlowNavbar.Brand href="/">
+      <FlowNavbar.Brand href="/home">
         <img
           src="images/sistemate_navbar.png"
           className="mr-4 h-8 sm:h-12"
@@ -38,6 +40,7 @@ export const Navbar = () => {
         >
           Relatórios
         </FlowNavbar.Link>
+        <UserButton afterSignOutUrl="/" />
       </FlowNavbar.Collapse>
     </FlowNavbar>
   );
