@@ -17,7 +17,7 @@ export default function Home() {
         <div className="container flex flex-col items-center justify-center gap-12 bg-white px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight text-black sm:text-[5rem]">
             <Image
-              src="/images/sistemate2.png" // Caminho para a imagem dentro da pasta "public"
+              src="/images/sistemate2.svg" // Caminho para a imagem dentro da pasta "public"
               alt="logo"
               width={800} // Largura da imagem
               height={500} // Altura da imagem

@@ -8,7 +8,7 @@ export const Navbar = () => {
     <FlowNavbar fluid={true} rounded={true}>
       <FlowNavbar.Brand href="/home">
         <img
-          src="images/sistemate_navbar.png"
+          src="images/sistemate_navbar.svg"
           className="mr-4 h-8 sm:h-12"
           alt="Sistemate Logo"
         />
