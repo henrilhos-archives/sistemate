@@ -1,17 +1,19 @@
 import { Navbar as FlowNavbar } from "flowbite-react";
 import { usePathname } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
+import Image from "next/image";
 
 export const Navbar = () => {
   const pathname = usePathname();
   return (
     <FlowNavbar fluid={true} rounded={true}>
       <FlowNavbar.Brand href="/home">
-        <img
+        <Image
           src="images/sistemate_navbar.svg"
           className="mr-4 h-8 sm:h-12"
           alt="Sistemate Logo"
         />
+
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"></span>
       </FlowNavbar.Brand>
       <FlowNavbar.Toggle />
