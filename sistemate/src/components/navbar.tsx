@@ -12,6 +12,8 @@ export const Navbar = () => {
           src="images/sistemate_navbar.svg"
           className="mr-4 h-8 sm:h-12"
           alt="Sistemate Logo"
+          width={150}
+          height={50}
         />
 
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"></span>
