@@ -1,3 +1,5 @@
+/*
+
 import { z } from "zod";
 
 import {
@@ -23,3 +25,4 @@ export const exampleRouter = createTRPCRouter({
     return "you can now see this secret message!";
   }),
 });
+*/
