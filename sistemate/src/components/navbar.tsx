@@ -10,10 +10,10 @@ export const Navbar = () => {
       <FlowNavbar.Brand href="/home">
         <Image
           src="images/sistemate_navbar.svg"
-          className="mr-4 h-8 sm:h-12"
+          className="mr-3 h-6 sm:h-12"
           alt="Sistemate Logo"
-          width={150}
-          height={50}
+          width={140}
+          height={30}
         />
 
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"></span>
