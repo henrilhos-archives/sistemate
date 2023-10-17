@@ -6,7 +6,7 @@ import Image from "next/image";
 export const Navbar = () => {
   const pathname = usePathname();
   return (
-    <FlowNavbar fluid={true} rounded={true}>
+    <FlowNavbar className="bg-[#FFF8F3]" fluid={true} rounded={true}>
       <FlowNavbar.Brand href="/home">
         <Image
           src="images/sistemate_navbar.svg"
