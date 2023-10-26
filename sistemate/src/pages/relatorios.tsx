@@ -12,7 +12,7 @@ export default function Relatorios() {
         <link rel="icon" href="/sistemate_favicon.ico" />
       </Head>
       <Navbar />
-      <main className="flex min-h-screen flex-col items-center justify-center bg-white"></main>
+      <main className="flex min-h-screen flex-col bg-[#FFF8F3]"></main>
       <FooterDefault />
     </>
   );
