@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { Layout } from "~/components/layout";
 
-export default function Relatorios() {
+export default function Fichas() {
   return (
     <>
       <Head>
-        <title>Sistemate - Relatórios</title>
+        <title>Sistemate - Fichas</title>
       </Head>
-      <Layout>Relatórios</Layout>
+      <Layout>Fichas</Layout>
     </>
   );
 }

@@ -60,58 +60,49 @@ model VerificationToken {
 }
 
 model Cliente {
-    id_cliente              String             @id @default(cuid())
-    ds_nome_cliente         String
-    ds_cpf                  String
-    ds_rg                   String
-    ds_telefone             Int
-    ds_nome_da_mae          String
-    ds_nome_do_pai          String
-    ds_endereco_residencial String
-    ds_numero_residencia    Int
-    ds_complemento          String
-    ds_bairro               String
-    ds_cep                  String
-    ds_facebook             String?
-    ds_instagram            String?
-    ds_outras_redes_sociais String?
-    Pedido                  Pedido[]
-    PessoaReferencia        PessoaReferencia[]
-    dth_criacao             DateTime           @default(now())
-    dth_modificacao         DateTime           @updatedAt
-}
-
-model Pedido {
-    id_pedido       String               @id @default(cuid())
-    cliente         Cliente              @relation(fields: [id_cliente], references: [id_cliente])
-    id_cliente      String
-    produtos        Produtos_no_Pedido[]
-    ds_quantidade   Int
-    dth_criacao     DateTime             @default(now())
-    dth_modificacao DateTime             @updatedAt
+    id                   String             @id @default(cuid())
+    nome                 String
+    cpf                  String             @unique
+    rg                   String             @unique
+    telefone             String
+    nome_da_mae          String
+    nome_do_pai          String
+    endereco_residencial String
+    numero_residencia    String
+    complemento          String
+    bairro               String
+    cep                  String
+    facebook             String?
+    instagram            String?
+    outras_redes_sociais String?
+    pedido               Pedido[]
+    pessoaReferencia     PessoaReferencia[]
+    createdAt            DateTime           @default(now())
+    updatedAt            DateTime           @updatedAt
 }
 
 model Produto {
-    id_produto           String               @id @default(cuid())
-    ds_nome_produto      String
-    ds_descricao_produto String?
-    pedidos              Produtos_no_Pedido[]
-    dth_criacao          DateTime             @default(now())
+    id                String   @id @default(cuid())
+    nome_produto      String
+    descricao_produto String?
+    pedido            Pedido[]
+    createdAt         DateTime @default(now())
+    updatedAt         DateTime @updatedAt
+}
+
+model Pedido {
+    id         String    @id @default(cuid())
+    cliente    Cliente   @relation(fields: [id], references: [id])
+    id_cliente String
+    produto    Produto[]
+    quantidade Int
+    createdAt  DateTime  @default(now())
+    updatedAt  DateTime  @updatedAt
 }
 
 model PessoaReferencia {
-    id_pessoa_referencia   String  @id @default(cuid())
-    cliente                Cliente @relation(fields: [id_cliente], references: [id_cliente])
-    id_cliente             String
-    ds_nome_referencia     String
-    ds_telefone_referencia Int
-}
-
-model Produtos_no_Pedido {
-    produto    Produto @relation(fields: [id_produto], references: [id_produto])
-    id_produto String
-    pedido     Pedido  @relation(fields: [id_pedido], references: [id_pedido])
-    id_pedido  String
-
-    @@id([id_produto, id_pedido])
+    id                  String    @id @default(cuid())
+    cliente             Cliente[]
+    nome_referencia     String
+    telefone_referencia Int
 }

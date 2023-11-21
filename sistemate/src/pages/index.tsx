@@ -1,6 +1,5 @@
 import { SignIn } from "@clerk/nextjs";
 import { SignInButton } from "@clerk/nextjs";
-import Head from "next/head";
 import Image from "next/image";
 
 import { FooterDefault } from "~/components/footer";
@@ -8,13 +7,8 @@ import { FooterDefault } from "~/components/footer";
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Sistemate</title>
-        <meta name="description" content="Sistemate" />
-        <link rel="icon" href="/sistemate_favicon.ico" />
-      </Head>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-[#FFF8F3]">
-        <div className="container flex flex-col items-center justify-center gap-12 bg-[#FFF8F3] px-4 py-16 ">
+      <main className="flex min-h-screen flex-col items-center justify-center bg-cream">
+        <div className="container flex flex-col items-center justify-center gap-12 bg-cream px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight text-black sm:text-[5rem]">
             <Image
               src="/images/sistemate2.svg" // Caminho para a imagem dentro da pasta "public"

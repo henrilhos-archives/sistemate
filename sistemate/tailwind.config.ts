@@ -9,8 +9,11 @@ export default {
     "./public/**/*.html",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        cream: "#FFF8F3",
+      },
+    },
   },
   plugins: [require("flowbite/plugin")],
-            
 } satisfies Config;

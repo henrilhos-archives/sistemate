@@ -6,14 +6,19 @@ import Image from "next/image";
 export const Navbar = () => {
   const pathname = usePathname();
   return (
-    <FlowNavbar className="bg-[#FFF8F3]" fluid={true} rounded={true}>
+    <FlowNavbar
+      className="sticky left-0 top-0 w-full bg-cream"
+      fluid={true}
+      rounded={true}
+    >
       <FlowNavbar.Brand href="/home">
         <Image
-          src="images/sistemate_nopadding.svg"
+          src="/images/sistemate_nopadding.svg"
           className="mr-3 h-6 sm:h-12"
           alt="Sistemate Logo"
           width={140}
           height={30}
+          priority={true}
         />
 
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"></span>
@@ -26,6 +31,12 @@ export const Navbar = () => {
             active={pathname === "/home" ? true : false}
           >
             Home
+          </FlowNavbar.Link>
+          <FlowNavbar.Link
+            href="/fichas"
+            active={pathname === "/fichas" ? true : false}
+          >
+            Cadastro de Fichas
           </FlowNavbar.Link>
           <FlowNavbar.Link
             href="/clientes"
