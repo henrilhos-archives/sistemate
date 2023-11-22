@@ -1,25 +1,19 @@
-import { type AppType } from "next/app";
-import { ClerkProvider } from "@clerk/nextjs";
-import { api } from "~/utils/api";
 import { ptBR } from "@clerk/localizations";
-import "~/styles/globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { type AppType } from "next/app";
 import Head from "next/head";
+import "~/styles/globals.css";
+import { api } from "~/utils/api";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <ClerkProvider
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       localization={ptBR}
+      appearance={{ elements: { footer: "hidden" } }}
       {...pageProps}
-      appearance={{
-        elements: {
-          footer: "hidden",
-        },
-      }}
     >
       <Head>
-        <title>Sitemate</title>
-        <link rel="icon" href="/sistemate_favicon.ico" />
+        <title>Sistemate</title>
       </Head>
 
       <Component {...pageProps} />

@@ -3,6 +3,14 @@ import { usePathname } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 
+const links = [
+  { path: "/home", name: "Home" },
+  { path: "/fichas", name: "Cadastro de Fichas" },
+  { path: "/clients", name: "Clientes" },
+  { path: "/produtos", name: "Produtos" },
+  { path: "/relatorios", name: "Relatórios" },
+];
+
 export const Navbar = () => {
   const pathname = usePathname();
   return (
@@ -25,37 +33,12 @@ export const Navbar = () => {
       </FlowNavbar.Brand>
       <FlowNavbar.Toggle className="text-black" />
       <FlowNavbar.Collapse>
-        <div className="flex flex-row items-center justify-center space-x-7 text-lg ">
-          <FlowNavbar.Link
-            href="/home"
-            active={pathname === "/home" ? true : false}
-          >
-            Home
-          </FlowNavbar.Link>
-          <FlowNavbar.Link
-            href="/fichas"
-            active={pathname === "/fichas" ? true : false}
-          >
-            Cadastro de Fichas
-          </FlowNavbar.Link>
-          <FlowNavbar.Link
-            href="/clientes"
-            active={pathname === "/clientes" ? true : false}
-          >
-            Clientes
-          </FlowNavbar.Link>
-          <FlowNavbar.Link
-            href="/produtos"
-            active={pathname === "/produtos" ? true : false}
-          >
-            Produtos
-          </FlowNavbar.Link>
-          <FlowNavbar.Link
-            href="/relatorios"
-            active={pathname === "/relatorios" ? true : false}
-          >
-            Relatórios
-          </FlowNavbar.Link>
+        <div className="flex flex-row items-center justify-center space-x-7 text-lg">
+          {links.map(({ path, name }) => (
+            <FlowNavbar.Link key={path} href={path} active={pathname === path}>
+              {name}
+            </FlowNavbar.Link>
+          ))}
         </div>
         <UserButton afterSignOutUrl="/" />
       </FlowNavbar.Collapse>
