@@ -19,7 +19,7 @@ model Customer {
     addressNumber     String
     addressComplement String?
     neighborhood      String
-    cep               String
+    zipCode           String
     createdAt         DateTime @default(now())
     updatedAt         DateTime @updatedAt
 

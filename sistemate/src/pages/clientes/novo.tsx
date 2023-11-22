@@ -1,65 +1,48 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { type NextPage } from "next";
 import Head from "next/head";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Layout } from "~/components/layout";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useCallback, useState } from "react";
 import { api } from "~/utils/api";
-import { TRPCError } from "@trpc/server";
-import { type NextPage } from "next";
 
-export const NewClientSchema = z.object({
-  nome: z.string(),
+export const NewCustomerSchema = z.object({
+  name: z.string(),
   cpf: z.string(),
   rg: z.string(),
-  telefone: z.string(),
-  nome_da_mae: z.string(),
-  nome_do_pai: z.string(),
-  endereco_residencial: z.string(),
-  numero_residencia: z.string(),
-  complemento: z.string(),
-  bairro: z.string(),
-  cep: z.string(),
-  facebook: z.string(),
-  instagram: z.string(),
-  outras_redes_sociais: z.string(),
+  phone: z.string(),
+  motherName: z.string().optional(),
+  fatherName: z.string().optional(),
+  address: z.string(),
+  addressNumber: z.string(),
+  addressComplement: z.string().optional(),
+  neighborhood: z.string(),
+  zipCode: z.string(),
 });
 
-type NewClient = z.infer<typeof NewClientSchema>;
+type NewClient = z.infer<typeof NewCustomerSchema>;
 
 const NewClientPage: NextPage = () => {
   const [loading, setLoading] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<NewClient>({
-    resolver: zodResolver(NewClientSchema),
+  const form = useForm<NewClient>({
+    resolver: zodResolver(NewCustomerSchema),
   });
 
-  const { mutateAsync: createClient } = api.clients.create.useMutation();
+  const { mutateAsync: createCustomer } = api.customer.create.useMutation();
 
-  const onSubmit = useCallback(
-    async (data: NewClient) => {
-      setLoading(true);
-      // Converta o telefone para número aqui
-      try {
-        await createClient(data);
-        // Limpar o formulário ou outras ações após o sucesso
-        setLoading(false);
-      } catch (err) {
-        if (err instanceof TRPCError) {
-          const message = err.message ?? "";
-          // Tratar erros específicos se necessário, exibindo mensagens na interface
-          console.error(message);
-        } else {
-          console.error(err); // Lidar com outros tipos de erros
-        }
-        setLoading(false);
-      }
-    },
-    [createClient],
-  );
+  const onSubmit = form.handleSubmit(async (data) => {
+    setLoading(true);
+
+    try {
+      await createCustomer(data);
+      setLoading(false);
+    } catch (err) {
+      console.error(err);
+      setLoading(false);
+    }
+  });
+
   return (
     <>
       <Head>
@@ -72,26 +55,27 @@ const NewClientPage: NextPage = () => {
               Cadastro de Cliente
             </div>
             <form
-              // eslint-disable-next-line @typescript-eslint/no-misused-promises
-              onSubmit={handleSubmit(onSubmit)}
-              className="mx-auto flex max-w-xl flex-col gap-2 px-4 px-8 py-6 "
+              onSubmit={onSubmit}
+              className="mx-auto flex max-w-xl flex-col gap-2 px-4 py-6 "
             >
               <div className="grid grid-cols-3 gap-x-8 gap-y-6 sm:grid-cols-3">
                 <div>
                   <label
-                    htmlFor="nome"
+                    htmlFor="name"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   >
-                    {errors.nome && (
-                      <p className="text-red-500">{errors.nome.message}</p>
+                    {form.formState.errors.name && (
+                      <p className="text-red-500">
+                        {form.formState.errors.name.message}
+                      </p>
                     )}
                   </label>
                   <div className="grid-row-3 mt-2.5">
                     <input
-                      id="nome"
+                      id="name"
                       placeholder="Nome completo"
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
-                      {...register("nome")}
+                      {...form.register("name")}
                     />
                   </div>
                 </div>
@@ -104,7 +88,7 @@ const NewClientPage: NextPage = () => {
                     <input
                       id="cpf"
                       placeholder="CPF"
-                      {...register("cpf")}
+                      {...form.register("cpf")}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -118,121 +102,121 @@ const NewClientPage: NextPage = () => {
                     <input
                       id="rg"
                       placeholder="RG"
-                      {...register("rg")}
+                      {...form.register("rg")}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
                 <div>
                   <label
-                    htmlFor="telefone"
+                    htmlFor="phone"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   ></label>
                   <div className="mt-2.5">
                     <input
                       type="number"
-                      id="telefone"
+                      id="phone"
                       placeholder="Telefone"
-                      {...register("telefone")}
+                      {...form.register("phone")}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
                 <div>
                   <label
-                    htmlFor="nome_da_mae"
+                    htmlFor="motherName"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   ></label>
                   <div className="mt-2.5">
                     <input
-                      id="nome_da_mae"
+                      id="motherName"
                       placeholder="Nome da Mãe"
-                      {...register("nome_da_mae")}
+                      {...form.register("motherName")}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
                 <div>
                   <label
-                    htmlFor="nome_do_pai"
+                    htmlFor="fatherName"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   ></label>
                   <div className="mt-2.5">
                     <input
-                      id="nome_do_pai"
+                      id="fatherName"
                       placeholder="Nome do Pai"
-                      {...register("nome_do_pai")}
+                      {...form.register("fatherName")}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
                 <div>
                   <label
-                    htmlFor="endereco_residencial"
+                    htmlFor="address"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   ></label>
                   <div className="mt-2.5">
                     <input
-                      id="endereco_residencial"
+                      id="address"
                       placeholder="Endereço Residencial"
-                      {...register("endereco_residencial")}
+                      {...form.register("address")}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
                 <div>
                   <label
-                    htmlFor="numero_residencia"
+                    htmlFor="addressNumber"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   ></label>
                   <div className="mt-2.5">
                     <input
                       type="number"
-                      id="numero_residencia"
+                      id="addressNumber"
                       placeholder="Número da Residência"
-                      {...register("numero_residencia")}
+                      {...form.register("addressNumber")}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
                 <div>
                   <label
-                    htmlFor="complemento"
+                    htmlFor="addressComplement"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   ></label>
                   <div className="mt-2.5">
                     <input
-                      id="complemento"
+                      id="addressComplement"
                       placeholder="Complemento"
-                      {...register("complemento")}
+                      {...form.register("addressComplement")}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
                 <div>
                   <label
-                    htmlFor="bairro"
+                    htmlFor="neighborhood"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   ></label>
                   <div className="mt-2.5">
                     <input
-                      id="bairro"
+                      id="neighborhood"
                       placeholder="Bairro"
-                      {...register("bairro")}
+                      {...form.register("neighborhood")}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
                 <div>
                   <label
-                    htmlFor="cep"
+                    htmlFor="zipCode"
                     className="block text-sm font-semibold leading-6 text-gray-900"
                   ></label>
                   <div className="mt-2.5">
                     <input
-                      id="cep"
+                      id="zipCode"
                       placeholder="CEP"
-                      {...register("cep")}
+                      {...form.register("zipCode")}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -243,22 +227,6 @@ const NewClientPage: NextPage = () => {
                   {loading ? "Criando..." : "Criar"}
                 </button>
               </div>
-              {/* Exibir erros de validação do formulário */}
-              {Object.values(errors).map((err, index) => (
-                <p key={index} className="text-red-500">
-                  {err?.message}
-                </p>
-              ))}
-              {errors.nome && (
-                <p className="text-red-500">
-                  Erro no campo Nome: {errors.nome.message}
-                </p>
-              )}
-              {errors.telefone && (
-                <p className="text-red-500">
-                  Erro no campo Telefone: {errors.telefone.message}
-                </p>
-              )}
             </form>
           </div>
         </div>

@@ -1,6 +1,5 @@
-// Importe o roteador de clientes
+import { customerRouter } from "~/server/api/routers/customer";
 import { createTRPCRouter } from "~/server/api/trpc";
-import { clientRouter } from "./routers/cliente";
 
 /**
  * This is the primary router for your server.
@@ -8,7 +7,7 @@ import { clientRouter } from "./routers/cliente";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-    clients: clientRouter,
+  customer: customerRouter,
 });
 
 // export type definition of API
