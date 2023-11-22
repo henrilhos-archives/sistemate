@@ -12,7 +12,8 @@ export default async function handler(
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const user = userId ? await clerkClient.users.getUser(userId) : null;
+  const user = await clerkClient.users.getUser(userId);
+  console.log(user);
 
   // use the user object to decide what data to return
 
